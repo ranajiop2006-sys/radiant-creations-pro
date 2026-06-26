@@ -2,6 +2,15 @@
 @source "../src";
 @import "tw-animate-css";
 
+@theme {
+  --color-obsidian: #121212;
+  --color-gold-antique: #c5a059;
+  --color-gold-muted: #e2d1a8;
+  --color-paper: #fdfbf7;
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 /*
