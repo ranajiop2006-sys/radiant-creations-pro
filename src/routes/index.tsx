@@ -3,6 +3,7 @@ import heroEarrings from "@/assets/hero-earrings.jpg";
 import collectionStuds from "@/assets/collection-studs.jpg";
 import collectionJhumkas from "@/assets/collection-jhumkas.jpg";
 import collectionHoops from "@/assets/collection-hoops.jpg";
+import { useReveal } from "@/hooks/use-reveal";
 
 const TITLE = "Malhotra Jewels — Premium Gold, Diamond & Silver Earrings, Noida";
 const DESCRIPTION =
@@ -44,6 +45,7 @@ const collections = [
 ];
 
 function Index() {
+  useReveal();
   return (
     <div className="min-h-screen bg-paper text-obsidian font-sans antialiased">
       {/* Nav */}
@@ -67,32 +69,32 @@ function Index() {
 
       {/* Hero */}
       <section className="relative h-[88vh] min-h-[640px] flex items-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 overflow-hidden">
           <img
             src={heroEarrings}
             alt="Intricate gold and diamond chandelier earrings on cream silk"
             width={1920}
             height={1280}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover mj-ken-burns"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-paper/85 via-paper/40 to-transparent" />
         </div>
         <div className="container mx-auto px-6 md:px-10 relative z-10">
           <div className="max-w-2xl">
-            <span className="block text-[11px] uppercase tracking-[0.4em] mb-6 text-gold-antique font-semibold italic">
+            <span className="mj-reveal block text-[11px] uppercase tracking-[0.4em] mb-6 text-gold-antique font-semibold italic">
               Est. Noida · Sector 27
             </span>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif leading-[1.05] mb-8">
+            <h1 className="mj-reveal mj-delay-1 text-5xl md:text-7xl lg:text-8xl font-serif leading-[1.05] mb-8">
               The Art of <br />
-              <span className="italic font-light">Generational</span> Gold
+              <span className="italic font-light mj-shimmer">Generational</span> Gold
             </h1>
-            <p className="text-base md:text-lg text-obsidian/70 font-serif italic max-w-md leading-relaxed mb-10">
+            <p className="mj-reveal mj-delay-2 text-base md:text-lg text-obsidian/70 font-serif italic max-w-md leading-relaxed mb-10">
               Preserving purity and intricate detailing through every handcrafted piece.
               From Malhotra Jewels to your legacy.
             </p>
             <a
               href="#collections"
-              className="inline-block bg-obsidian text-paper px-10 py-4 text-[11px] uppercase tracking-[0.25em] hover:bg-gold-antique transition-all duration-500"
+              className="mj-reveal mj-delay-3 mj-cta inline-block bg-obsidian text-paper px-10 py-4 text-[11px] uppercase tracking-[0.25em] hover:bg-gold-antique transition-all duration-500"
             >
               Explore Collections
             </a>
@@ -104,24 +106,24 @@ function Index() {
       <section id="collections" className="py-24 md:py-32 px-6 md:px-10 bg-white">
         <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-6 mb-16">
           <div>
-            <h2 className="text-[11px] uppercase tracking-[0.3em] text-gold-antique mb-4 font-bold">
+            <h2 className="mj-reveal text-[11px] uppercase tracking-[0.3em] text-gold-antique mb-4 font-bold mj-rule">
               Featured Edicts
             </h2>
-            <p className="text-4xl md:text-5xl font-serif italic">Curated Earrings</p>
+            <p className="mj-reveal mj-delay-1 text-4xl md:text-5xl font-serif italic">Curated Earrings</p>
           </div>
           <a
             href="#visit"
-            className="text-[11px] uppercase tracking-[0.25em] border-b border-obsidian/20 pb-1 hover:border-gold-antique hover:text-gold-antique transition-colors self-start md:self-auto"
+            className="mj-reveal mj-delay-2 text-[11px] uppercase tracking-[0.25em] border-b border-obsidian/20 pb-1 hover:border-gold-antique hover:text-gold-antique transition-colors self-start md:self-auto"
           >
             View All 839 Designs
           </a>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
-          {collections.map((c) => (
+          {collections.map((c, i) => (
             <article
               key={c.title}
-              className={`group cursor-pointer ${c.offset ? "md:translate-y-12" : ""}`}
+              className={`mj-card mj-reveal mj-delay-${i + 1} group cursor-pointer ${c.offset ? "md:translate-y-12" : ""}`}
             >
               <div className="overflow-hidden mb-6 bg-paper">
                 <img
@@ -130,7 +132,7 @@ function Index() {
                   loading="lazy"
                   width={800}
                   height={1000}
-                  className="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="mj-img w-full aspect-[4/5] object-cover"
                 />
               </div>
               <h3 className="font-serif text-2xl mb-1">{c.title}</h3>
@@ -144,21 +146,21 @@ function Index() {
       <section id="atelier" className="py-24 md:py-32 px-6 md:px-10 bg-paper">
         <div className="max-w-5xl mx-auto grid md:grid-cols-5 gap-12 items-start">
           <div className="md:col-span-2">
-            <h2 className="text-[11px] uppercase tracking-[0.3em] text-gold-antique mb-4 font-bold">
+            <h2 className="mj-reveal text-[11px] uppercase tracking-[0.3em] text-gold-antique mb-4 font-bold mj-rule">
               The Atelier
             </h2>
-            <p className="text-4xl md:text-5xl font-serif italic leading-tight">
+            <p className="mj-reveal mj-delay-1 text-4xl md:text-5xl font-serif italic leading-tight">
               A heritage of <br />quiet luxury.
             </p>
           </div>
           <div className="md:col-span-3 space-y-6 text-obsidian/70 leading-relaxed text-[15px]">
-            <p>
+            <p className="mj-reveal mj-delay-2">
               From a young age, premium silver, gold and diamond jewellery has earned a
               distinguished place in each household — blending tradition with modern tastes
               and fashion trends. Be it the festive spirit of celebration or everyday style,
               fine jewellery complements every occasion.
             </p>
-            <p>
+            <p className="mj-reveal mj-delay-3">
               At Malhotra Jewels, hallmarked gold and certified diamond collections are
               crafted with intricate detailing to offer statement pieces treasured for
               generations — a perfect amalgamation of comfort and opulence.
@@ -168,8 +170,8 @@ function Index() {
                 ["BIS", "Hallmarked Gold"],
                 ["IGI", "Certified Diamonds"],
                 ["100%", "Women-Owned"],
-              ].map(([k, v]) => (
-                <div key={v}>
+              ].map(([k, v], i) => (
+                <div key={v} className={`mj-reveal mj-delay-${i + 1}`}>
                   <div className="font-serif text-2xl text-gold-antique">{k}</div>
                   <div className="text-[10px] uppercase tracking-[0.2em] text-obsidian/50 mt-2">
                     {v}
@@ -184,14 +186,14 @@ function Index() {
       {/* Testimonial / Experience */}
       <section id="story" className="py-28 md:py-40 px-6 md:px-10 bg-obsidian text-paper">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-gold-muted text-[11px] uppercase tracking-[0.5em] mb-12">
+          <h2 className="mj-reveal text-gold-muted text-[11px] uppercase tracking-[0.5em] mb-12">
             Visit Our Noida Showroom
           </h2>
-          <p className="text-3xl md:text-5xl font-serif leading-snug mb-16 italic">
+          <p className="mj-reveal mj-delay-1 text-3xl md:text-5xl font-serif leading-snug mb-16 italic">
             &ldquo;The best shop to shop for gold and diamonds. You can trust the quality.
             One of the oldest shops in Noida in the best location.&rdquo;
           </p>
-          <p className="text-[10px] tracking-[0.3em] uppercase text-gold-muted mb-16">
+          <p className="mj-reveal mj-delay-2 text-[10px] tracking-[0.3em] uppercase text-gold-muted mb-16">
             — K. Navneet · Local Guide · Google Review
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-[10px] uppercase tracking-[0.2em] opacity-80">
@@ -200,8 +202,8 @@ function Index() {
               ["Hours", "Open until 8:00 PM"],
               ["Identity", "Women-Owned Business"],
               ["Rating", "5.0 / 839 Reviews"],
-            ].map(([k, v]) => (
-              <div key={k} className="space-y-2">
+            ].map(([k, v], i) => (
+              <div key={k} className={`mj-reveal mj-delay-${i + 1} space-y-2`}>
                 <p className="text-gold-muted">{k}</p>
                 <p>{v}</p>
               </div>
@@ -214,14 +216,14 @@ function Index() {
       <section id="visit" className="py-24 md:py-32 px-6 md:px-10 bg-white">
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-16">
           <div>
-            <h2 className="text-[11px] uppercase tracking-[0.3em] text-gold-antique mb-4 font-bold">
+            <h2 className="mj-reveal text-[11px] uppercase tracking-[0.3em] text-gold-antique mb-4 font-bold mj-rule">
               Find Us
             </h2>
-            <p className="text-4xl md:text-5xl font-serif italic mb-10">
+            <p className="mj-reveal mj-delay-1 text-4xl md:text-5xl font-serif italic mb-10">
               Step inside the boutique.
             </p>
             <dl className="space-y-6 text-[14px]">
-              <div>
+              <div className="mj-reveal mj-delay-2">
                 <dt className="text-[10px] uppercase tracking-[0.25em] text-obsidian/40 mb-2">Address</dt>
                 <dd className="text-obsidian/80 leading-relaxed">
                   Sab Mall, Captain Vijyant Thapar Marg,<br />
@@ -229,11 +231,11 @@ function Index() {
                   Noida, Uttar Pradesh 201301
                 </dd>
               </div>
-              <div>
+              <div className="mj-reveal mj-delay-3">
                 <dt className="text-[10px] uppercase tracking-[0.25em] text-obsidian/40 mb-2">Hours</dt>
                 <dd className="text-obsidian/80">Open daily · Closes 8:00 PM</dd>
               </div>
-              <div>
+              <div className="mj-reveal mj-delay-4">
                 <dt className="text-[10px] uppercase tracking-[0.25em] text-obsidian/40 mb-2">Telephone</dt>
                 <dd className="text-obsidian/80">
                   <a href="tel:08178184295" className="hover:text-gold-antique transition-colors">
@@ -243,7 +245,7 @@ function Index() {
               </div>
             </dl>
           </div>
-          <div className="bg-paper border border-obsidian/5 p-10 flex flex-col justify-between">
+          <div className="mj-reveal mj-delay-2 bg-paper border border-obsidian/5 p-10 flex flex-col justify-between">
             <div>
               <h3 className="font-serif text-2xl italic mb-4">Book a private viewing</h3>
               <p className="text-obsidian/60 text-sm leading-relaxed mb-8">
@@ -254,7 +256,7 @@ function Index() {
             <div className="space-y-3">
               <a
                 href="tel:08178184295"
-                className="block text-center bg-obsidian text-paper px-8 py-4 text-[11px] uppercase tracking-[0.25em] hover:bg-gold-antique transition-colors"
+                className="mj-cta block text-center bg-obsidian text-paper px-8 py-4 text-[11px] uppercase tracking-[0.25em] hover:bg-gold-antique transition-colors"
               >
                 Call to Reserve
               </a>
@@ -262,7 +264,7 @@ function Index() {
                 href="https://www.google.com/maps/search/?api=1&query=Malhotra+Jewels+Sab+Mall+Noida"
                 target="_blank"
                 rel="noreferrer"
-                className="block text-center border border-obsidian/20 px-8 py-4 text-[11px] uppercase tracking-[0.25em] hover:border-gold-antique hover:text-gold-antique transition-colors"
+                className="mj-cta block text-center border border-obsidian/20 px-8 py-4 text-[11px] uppercase tracking-[0.25em] hover:border-gold-antique hover:text-gold-antique transition-colors"
               >
                 Get Directions
               </a>
