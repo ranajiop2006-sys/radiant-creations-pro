@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 /**
- * Adds `is-visible` class to elements with `mj-reveal`, `mj-reveal-fade`,
+ * Adds `is-visible` to elements with `mj-reveal`, `mj-reveal-fade`,
  * or `mj-rule` once they scroll into view.
  */
 export function useReveal() {
